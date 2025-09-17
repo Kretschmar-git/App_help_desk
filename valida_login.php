@@ -1,5 +1,13 @@
 <?php
 
+    session_start();
+    $_SESSION['x'] = 'teste';
+
+    echo '<pre>';
+    print_r($_SESSION);
+    echo '</pre><hr>';
+    
+
     $usuarios_app = array(
         array('email' => 'adm@teste.com.br', 'senha' => '123456'),
         array('email' => 'user@teste.com.br', 'senha' => 'abcdef'),
