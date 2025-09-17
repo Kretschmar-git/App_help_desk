@@ -1,5 +1,5 @@
 <?php
-
+////
     session_start();
     $_SESSION['x'] = 'teste';
 
@@ -30,9 +30,6 @@
     }else{
         header('Location: index.php?login=erro');
     }
-
-    
-    gfhahjdf
     
 ?>
 
