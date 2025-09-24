@@ -1,12 +1,6 @@
 <?php
 ////
-    session_start();
-    $_SESSION['x'] = 'teste';
-
-    echo '<pre>';
-    print_r($_SESSION);
-    echo '</pre><hr>';
-    
+    session_start();    
 
     $usuarios_app = array(
         array('email' => 'adm@teste.com.br', 'senha' => '123456'),
@@ -17,9 +11,6 @@
     
 
     foreach($usuarios_app as $user){
-       echo "Usuario app: {$user['email']} - {$user['senha']}<br/>";
-       echo "Usuario form: {$_POST['email']} - {$_POST['senha']}<hr/>";
-
        /*
         * $_POST é uma superglobal do PHP que contém os dados enviados para o script
         * através do método HTTP POST.
@@ -33,6 +24,7 @@
 
     if($usuario_autenticado){
         echo 'usuario autenticado';
+        $_SESSION['autenticado'] = 'SIM';
     }else{
         $_SESSION['autenticado'] = 'NAO';
         // Se a autenticação falhar, redireciona o usuário de volta para a página de login.
