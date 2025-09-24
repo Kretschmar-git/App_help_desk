@@ -1,3 +1,13 @@
+<?php
+  session_start();
+  //isset verifica se uma variável existe e retorna true ou false
+  if(!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM'){
+    header('Location: index.php?login=erro2');
+  }
+  echo $_SESSION['autenticado'];
+  
+
+?>
 <html>
   <head>
     <meta charset="utf-8" />
