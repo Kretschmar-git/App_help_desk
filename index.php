@@ -33,7 +33,8 @@
               Login
             </div>
             <div class="card-body">
-              <form action="valida_login.php" method="post">
+                // post é mais seguro que get pois os dados não ficam na url
+                <form action="valida_login.php" method="post"> 
                 <div class="form-group">
                   <input name="email" type="email" class="form-control" placeholder="E-mail">
                 </div>
@@ -41,6 +42,7 @@
                   <input name="senha" type="password" class="form-control" placeholder="Senha">
                 </div>
                 <?php
+                  //isset verifica se uma variável existe e retorna true ou false
                   if(isset($_GET['login']) && $_GET['login'] == 'erro') {
                 ?>
 
