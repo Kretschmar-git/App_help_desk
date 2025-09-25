@@ -1,12 +1,5 @@
 <?php
-  session_start();
-  //isset verifica se uma variável existe e retorna true ou false
-  if(!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM'){
-    header('Location: index.php?login=erro2');
-  }
-  echo $_SESSION['autenticado'];
-  
-
+  require_once 'validador_acesso.php';
 ?>
 <html>
   <head>
