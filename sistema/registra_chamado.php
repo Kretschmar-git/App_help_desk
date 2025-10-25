@@ -20,7 +20,7 @@ $descricao = str_replace('|', '-', $_POST['descricao'] ?? '');
 $text = $_SESSION['id'] . '|' . $titulo . '|' . $categoria . '|' . $descricao . PHP_EOL; // Adiciona quebra de linha no final!
 
 // Caminho para o arquivo (idealmente fora da pasta pública)
-$caminho_arquivo = 'arquivo.hd'; 
+$caminho_arquivo = '../../../app_help_desk_P/arquivo.hd'; 
 
 // 4. MANIPULAÇÃO DE ARQUIVO com tratamento de erro.
 $arquivo = fopen($caminho_arquivo, 'a'); // a = append (acrescentar)
