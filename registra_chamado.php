@@ -8,7 +8,7 @@ if (empty($_POST['titulo']) || empty($_POST['categoria']) || empty($_POST['descr
     header('Location: formulario.php?erro=campos_vazios');
     exit(); // Encerra o script para não continuar a execução
 }
-
+ 
 // 2. TRATAMENTO: Usar o operador '??' como segurança extra e limpar os dados.
 //    Trocar o caractere problemático por algo seguro.
 $titulo = str_replace('|', '-', $_POST['titulo'] ?? '');
