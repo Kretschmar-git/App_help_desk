@@ -23,6 +23,7 @@ Siga os passos abaixo para configurar e rodar o projeto em sua máquina local:
 
 1.  **Clone o Repositório:**
     ```bash
-    git clone https://github.com/seu-usuario/App_help_desk.git
+    git clone https://github.com/kretschmar-git/app_help_desk
 
     ```
+
