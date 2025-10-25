@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // 1. VALIDAÇÃO: Verificar se os dados foram enviados e não estão vazios.
 if (empty($_POST['titulo']) || empty($_POST['categoria']) || empty($_POST['descricao'])) {
@@ -16,13 +17,14 @@ $descricao = str_replace('|', '-', $_POST['descricao'] ?? '');
 
 // 3. FORMATAÇÃO: Escolher um separador seguro que não existe nos dados.
 //    O caractere '|' (pipe) é uma escolha comum.
-$text = $titulo . '|' . $categoria . '|' . $descricao . PHP_EOL; // Adiciona quebra de linha no final!
+$text = $_SESSION['id'] . '|' . $titulo . '|' . $categoria . '|' . $descricao . PHP_EOL; // Adiciona quebra de linha no final!
 
 // Caminho para o arquivo (idealmente fora da pasta pública)
 $caminho_arquivo = 'arquivo.hd'; 
 
 // 4. MANIPULAÇÃO DE ARQUIVO com tratamento de erro.
-$arquivo = fopen($caminho_arquivo, 'a');
+$arquivo = fopen($caminho_arquivo, 'a'); // a = append (acrescentar)
+
 
 if ($arquivo) {
     // Escreve no arquivo

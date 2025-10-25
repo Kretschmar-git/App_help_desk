@@ -43,12 +43,12 @@
               <div class="row">
                 <div class="col-6 d-flex justify-content-center">
                   <a href="abrir_chamado.php">
-                    <img src="formulario_abrir_chamado.png" width="70" height="70">
+                    <img src="png/formulario_abrir_chamado.png" width="70" height="70">
                   </a>              
                 </div>
                 <div class="col-6 d-flex justify-content-center">
                   <a href="consultar_chamado.php">
-                    <img src="formulario_consultar_chamado.png" width="70" height="70">
+                    <img src="png/formulario_consultar_chamado.png" width="70" height="70">
                   </a>
                 </div>
               </div>

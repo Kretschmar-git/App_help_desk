@@ -1,6 +1,25 @@
 <?php
   require_once 'validador_acesso.php';
 ?>
+<?php
+  //chamados
+  $chamados = array();
+
+
+    // Caminho para o arquivo (idealmente fora da pasta pública)
+  $caminho_arquivo = 'arquivo.hd'; 
+
+  // 4. MANIPULAÇÃO DE ARQUIVO com tratamento de erro.
+  $arquivo = fopen($caminho_arquivo, 'r'); // r = read (leitura)
+
+  //enquanto houver registros (linhas) no arquivo
+  while(!feof($arquivo)) {
+    $registro = fgets($arquivo);
+    $chamados[] = $registro; 
+  }
+
+  fclose($arquivo); 
+?>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -42,23 +61,35 @@
             
             <div class="card-body">
               
-              <div class="card mb-3 bg-light">
-                <div class="card-body">
-                  <h5 class="card-title">Título do chamado...</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-                  <p class="card-text">Descrição do chamado...</p>
+              <?php
+                foreach ($chamados as $chamado) {
+              ?>
+                <?php
+                  $chamado_dados = explode('|', $chamado);
 
+                  if($_SESSION['perfil_id'] == 2) {
+                    if($chamado_dados[0] != $_SESSION['id']) {
+                      continue;
+                    }
+                  }
+
+                  if(count($chamado_dados) < 3) {
+                    continue;
+                  }
+                  $titulo = $chamado_dados[1];
+                  $categoria = $chamado_dados[2];
+                  $descricao = $chamado_dados[3];
+                ?>
+                <div class="card mb-3 bg-light">
+                  <div class="card-body">
+                    <h5 class="card-title"><?=$titulo?></h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><?=$categoria?></h6>
+                    <p class="card-text"><?=$descricao?></p>
+                  </div>
                 </div>
-              </div>
-
-              <div class="card mb-3 bg-light">
-                <div class="card-body">
-                  <h5 class="card-title">Título do chamado...</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-                  <p class="card-text">Descrição do chamado...</p>
-
-                </div>
-              </div>
+              <?php
+                }
+              ?>
 
               <div class="row mt-5">
                 <div class="col-6">
